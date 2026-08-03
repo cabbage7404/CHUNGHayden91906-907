@@ -104,3 +104,25 @@ careers = [
            "Develops and implements marketing strategies to promote products or services.",
            "Bachelor's Degree in Marketing or related field")
 ]
+
+#prints introduction to the program
+print("================= Career planner ================")
+print("Welcome to the Career Planning Program! \nThis program will help you identify your career goals, assess your skills and interests, and create a personalized career plan.")
+print("=================================================\n")
+
+#main loop for program
+while True:
+    print("Available Careers:")
+    for i, career in enumerate(careers, 1):
+        print(f"{i}. {career.name}")
+
+    print("Enter the number of a career to view more information, or type '0' to quit the program.")
+    choice = input("Enter number: ")
+    if choice == "0":
+        print("Thank you for using the Career Planning Program!")
+        break
+    elif choice.isdigit() and 1 <= int(choice) <= len(careers):
+        careers[int(choice) - 1].display_info()
+        input("\nPress Enter to return to the main menu")
+    else:
+        print("Please enter a valid number from the list or '0' to quit.")

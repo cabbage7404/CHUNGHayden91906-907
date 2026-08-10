@@ -54,3 +54,21 @@ class User:
             "education": self.education,
             "career_interest": self.career_interest,
         }
+
+#creating class for quiz and questions
+class Question:
+    def __init__(self, question_text, options, sector_assign):
+        self.question_text = question_text
+        self.options = options
+        self.sector_assign = sector_assign
+
+    def display_question(self):
+        print(f"Question: {self.question_text}")
+        for i, option in enumerate(self.options, 1):
+            print(f"{i}. {option}")
+        while True:
+             answer = input("Please select an option (1-4): ")
+             if answer.isdigit() and 1 <= int(answer) <= len(self.options):
+                 return int(answer) - 1
+             print("Please enter a valid option number.")
+

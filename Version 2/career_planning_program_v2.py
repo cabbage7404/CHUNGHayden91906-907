@@ -92,6 +92,29 @@ class Quiz:
                 "Analysing a financial report",
                 "Designing a logo or creating art"],
                 {0: "Technology", 1: "Education", 2: "Finance", 3: "Creative Arts"}
+            ),
+            Question(
+                "How do you prefer to solve problems?",
+                ["Logically, step-by-step",
+                "Talking it through with others",
+                "By researching laws or rules",
+                "Through creative thinking and brainstorming"],
+                {0: "Technology", 1: "Healthcare", 2: "Law", 3: "Creative Arts"}
+            ),
+            Question(
+                "What is most important to you in a career?",
+                ["A high salary and financial security",
+                "Making a difference in people's lives",
+                "Stability and clear structure in work",
+                "Freedom to express creativity and innovate"],
+                {0: "Finance", 1: "Healthcare", 2: "Engineering", 3: "Creative Arts"}
+            )
+            Question(
+                "Which subject did you most enjoy at school?",
+                ["Maths or Science",
+                "English or Social Studies",
+                "Arts or Music",
+                "Physical Education or Sports"],
+                {0: "Engineering", 1: "Law", 2: "Creative Arts", 3: "Healthcare"}
             )
         ]
-        self.sector_scores = {}

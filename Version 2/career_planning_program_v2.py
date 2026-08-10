@@ -118,3 +118,8 @@ class Quiz:
                 {0: "Engineering", 1: "Law", 2: "Creative Arts", 3: "Healthcare"}
             )
         ]
+
+    def run(self):
+        print("================= Career quiz =====================")
+        print("Answer the following questions to find the best career path for you.")
+        print("=====================================================\n\n")

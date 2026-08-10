@@ -70,5 +70,28 @@ class Question:
              answer = input("Please select an option (1-4): ")
              if answer.isdigit() and 1 <= int(answer) <= len(self.options):
                  return int(answer) - 1
-             print("Please enter a valid option number.")
+             else:
+                print("Please enter a valid option number.")
 
+#creating class for quiz
+class Quiz:
+    def __init__(self, questions):
+        self.questions = [
+            Question(
+                "What type of work environment do you prefer?",
+                ["Working with technology and computers",
+                "Helping and  caring for people",
+                "Working with numbers and data",
+                "Being creative and making things"],
+                {0: "Technology", 1: "Healthcare", 2: "Finance", 3: "Creative Arts"}
+            ),
+            Question(
+                "Which activity sounds the most appealing to you?",
+                ["Building or coding an app",
+                "Teaching or mentoring someone",
+                "Analysing a financial report",
+                "Designing a logo or creating art"],
+                {0: "Technology", 1: "Education", 2: "Finance", 3: "Creative Arts"}
+            )
+        ]
+        self.sector_scores = {}

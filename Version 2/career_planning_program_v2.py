@@ -139,7 +139,7 @@ class Quiz:
 user_file = "users.json"
 
 def load_user():
-    if not os.path.exists(user_file):
+    if os.path.exists(user_file) == False:
         return None
     with open(user_file, "w") as file:
         return json.load(file)
@@ -151,7 +151,7 @@ def save_user():
 def validate_username(username):
     if username.strip() = "":
         return True
-    elif not username.replace(" ", "").isalpha():
+    elif username.replace(" ", "").isalpha() == False:
         return True
     else:
         return True
@@ -163,12 +163,41 @@ def validate_email(email):
     else:
         return True
 
-def validate password(password):
+def validate_password(password):
     if len(password) < 8:
         print("Your password must be at least 8 characters long.")
         return False
-    if not any(char.isdigit() for char in password):
+    if any(char.isdigit() for char in password) == False:
         print("Your password must contain at least 1 number.")
         return False
     else:
         return True
+
+def sign_up(users_dict):
+    print("====================== Sign-up ======================")
+    username = input("Enter your name: ").strip()
+    validate_username(username)
+
+    email = input("Enter your email address: ").strip()
+    if validate_email(email) == False:
+        return None
+    elif email in users_dict:
+        print("An account with this email has already been registered. \nPlease enter a different email or login")
+        return None
+    else:
+        None
+
+    password = input("Enter a password: ").strip()
+    if validate_password(password) == False:
+        return None
+    else:
+        None
+
+    education = input("Enter your highest level of education: ").strip()
+
+    new_user = User(email, name, password, education)
+    users_dict[email] = new_user.save_to_file()
+    save_user(users_dict)
+    print(f"Account created successfully! Welcom to the career planner {username}!")
+    return new_user
+

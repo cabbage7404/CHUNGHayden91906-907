@@ -143,3 +143,14 @@ def load_user():
         return None
     with open(user_file, "w") as file:
         return json.load(file)
+
+def save_user():
+    with open(user_file, "w") as file:
+        json.dump(user_dict, file, indent = 4)
+
+def validate_username(username):
+    if username.strip() = "":
+        return True
+    if not username.replace(" ", "").isalpha():
+        return True
+    return True

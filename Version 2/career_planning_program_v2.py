@@ -135,3 +135,11 @@ class Quiz:
 
             best sector = max(sector_scores)
             return best_sector
+
+user_file = "users.json"
+
+def load_user():
+    if not os.path.exists(user_file):
+        return None
+    with open(user_file, "w") as file:
+        return json.load(file)

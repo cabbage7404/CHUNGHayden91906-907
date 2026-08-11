@@ -151,6 +151,24 @@ def save_user():
 def validate_username(username):
     if username.strip() = "":
         return True
-    if not username.replace(" ", "").isalpha():
+    elif not username.replace(" ", "").isalpha():
         return True
-    return True
+    else:
+        return True
+
+def validate_email(email):
+    if "@" not in email or "." not in email:
+        print("Invalid email address. Please check your input.")
+        return False
+    else:
+        return True
+
+def validate password(password):
+    if len(password) < 8:
+        print("Your password must be at least 8 characters long.")
+        return False
+    if not any(char.isdigit() for char in password):
+        print("Your password must contain at least 1 number.")
+        return False
+    else:
+        return True

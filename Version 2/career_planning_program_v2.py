@@ -201,3 +201,23 @@ def sign_up(users_dict):
     print(f"Account created successfully! Welcom to the career planner {username}!")
     return new_user
 
+def login(users_dict):
+    print("====================== Login ======================")
+    email = input("Enter your email: ").strip()
+    password = input("Enter your password: ").strip()
+
+    if email not in users_dict:
+        print("No account found with that email. Please try again.")
+        return None
+    elif users_dict[email]["pass"] != password:
+        print("Incorrect password. Please try again.")
+        return None
+    else:
+        None
+
+    data = user_dict[email]
+    user = User(data["name"], data["email"], data["password"], data["education"])
+
+    user.quiz_results = data["results"]
+    print(f"Welcome back {user.username}!")
+    return user

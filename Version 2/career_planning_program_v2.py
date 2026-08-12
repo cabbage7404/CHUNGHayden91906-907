@@ -325,3 +325,31 @@ def browse_careers():
         else:
             print("Please enter a valid number for the list.")
 
+def main_menu("user, users_dict"):
+    while True:
+        print(f"====================== Main menu | Account: {user.username} ======================")
+        print("Please choose from the following options: ")
+        print("1. Browse careers")
+        print("2. Take career quiz")
+        print("3. View my profile")
+        print("0. Logout")
+        print("===================================================================================\n")
+
+        choice = input("Enter your option: ")
+
+        if choice == "0":
+            print(f"Logging out. See you next time {user.username}!")
+            break
+        elif choice == "1":
+            browse_careers()
+        elif choice == "2":
+            quiz = Quiz()
+            result = quiz.run()
+            print("====================== Quiz complete! ======================")
+            print(f"Based on your answer from the quiz, your recommended sector is: {results}!")
+            save_user(users_dict)
+        elif choice == "3":
+            display_profile(user)
+        else:
+            print("Please enter a valid option.")
+

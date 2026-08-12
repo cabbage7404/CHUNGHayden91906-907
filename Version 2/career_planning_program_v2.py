@@ -308,3 +308,20 @@ careers = [
               "Develops and implements marketing strategies to promote products or services.",
               "Bachelor's Degree in Marketing or related field")
 ]
+
+def browse_careers():
+    while True:
+        print("====================== Available careers ======================")
+        for i, career in enumerate(careers, 0):
+            print(f"{i}. {career.name} ({career.sector})")
+
+        choice = input("Enter a number to view career details, or 0 to go back to the start menu : ").strip()
+
+        if choice == "0":
+            break
+        elif choice.isdigit() and 1 <= int(choice) <= len(careers):
+            careers[int(choice) - 1].display()
+            input("\nPress enter to continue.")
+        else:
+            print("Please enter a valid number for the list.")
+

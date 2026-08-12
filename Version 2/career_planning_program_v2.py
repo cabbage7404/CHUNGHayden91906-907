@@ -353,3 +353,31 @@ def main_menu("user, users_dict"):
         else:
             print("Please enter a valid option.")
 
+print("===================== Career planner ====================")
+print("Welcome to the Career Planning Program! \nThis program will help you identify your career goals, assess your skills and interests, and create a personalized career plan.")
+print("=========================================================\n")
+
+users_dict = load_user()
+
+while True:
+    print("=================================================")
+    print("1. Login")
+    print("2. Sign-up")
+    print("0. Exit")
+    print("=================================================\n")
+
+    choice = input("Please choose an input: ").strip()
+
+    if choice == "0":
+        print("Exiting the career planner. See you next time!")
+        break
+    elif choice == "1":
+        user = login(users_dict)
+        if user == True:
+            main_menu(user, users_dict)
+    elif choice == "2":
+        user = sign_up(users_dict)
+        if user  == True:
+            main_menu(user, users_dict)
+    else:
+        print("Please enter a valid option.")

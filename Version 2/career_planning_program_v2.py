@@ -47,7 +47,7 @@ class User:
         print("=====================================================\n\n")
 
     def save_to_file(self):
-        return = {
+        return {
             "username": self.username,
             "password": self.password,
             "email": self.email,

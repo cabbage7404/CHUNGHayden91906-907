@@ -108,7 +108,7 @@ class Quiz:
                 "Stability and clear structure in work",
                 "Freedom to express creativity and innovate"],
                 {1: "Finance", 2: "Healthcare", 3: "Engineering", 4: "Creative Arts"}
-            )
+            ),
             Question(
                 "Which subject did you most enjoy at school?",
                 ["Maths or Science",

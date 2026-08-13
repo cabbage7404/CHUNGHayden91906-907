@@ -149,7 +149,7 @@ def save_user():
         json.dump(user_dict, file, indent = 4)
 
 def validate_username(username):
-    if username.strip() = "":
+    if username.strip() == "":
         return True
     elif username.replace(" ", "").isalpha() == False:
         return True

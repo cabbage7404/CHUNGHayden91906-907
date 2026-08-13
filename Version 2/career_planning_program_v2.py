@@ -133,7 +133,7 @@ class Quiz:
             else:
                 sector_scores[suggested_sector] = 1
 
-            best sector = max(sector_scores)
+            best_sector = max(sector_scores)
             return best_sector
 
 user_file = "users.json"

@@ -325,7 +325,7 @@ def browse_careers():
         else:
             print("Please enter a valid number for the list.")
 
-def main_menu("user, users_dict"):
+def main_menu(user, users_dict):
     while True:
         print(f"====================== Main menu | Account: {user.username} ======================")
         print("Please choose from the following options: ")

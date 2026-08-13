@@ -3,6 +3,7 @@
 #importing json and os modules
 import json
 import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 #creating class for careers
 class Career:
@@ -136,16 +137,18 @@ class Quiz:
             best_sector = max(sector_scores)
             return best_sector
 
-user_file = "users.json"
-
 def load_user():
-    if os.path.exists(user_file) == False:
-        return None
-    with open(user_file, "r") as file:
-        return json.load(file)
+    if os.path.exists("user_info.json") == False:
+        return {}
+    else:
+        with open("user_info.json", "r") as file:
+            content = file.read()
+            if content.strip() == "":
+                return {}
+            return json.loads(content)
 
 def save_user():
-    with open(user_file, "w") as file:
+    with open("user_info.json", "w") as file:
         json.dump(user_dict, file, indent = 4)
 
 def validate_username(username):

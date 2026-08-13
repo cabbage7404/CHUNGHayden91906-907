@@ -141,7 +141,7 @@ user_file = "users.json"
 def load_user():
     if os.path.exists(user_file) == False:
         return None
-    with open(user_file, "w") as file:
+    with open(user_file, "r") as file:
         return json.load(file)
 
 def save_user():

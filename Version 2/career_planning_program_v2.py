@@ -26,10 +26,10 @@ class Career:
 
 #creating class for users and accounts
 class User:
-    def __init__(self, username, password, email, education):
+    def __init__(self, username, email, password, education):
         self.username = username
-        self.password = password
         self.email = email
+        self.password = password
         self.education = education
         self.quiz_results = None
 

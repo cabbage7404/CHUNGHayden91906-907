@@ -208,13 +208,13 @@ def login(users_dict):
     if email not in users_dict:
         print("No account found with that email. Please try again.")
         return None
-    elif users_dict[email]["pass"] != password:
+    elif users_dict[email]["password"] != password:
         print("Incorrect password. Please try again.")
         return None
     else:
         None
 
-    data = user_dict[email]
+    data = users_dict[email]
     user = User(data["name"], data["email"], data["password"], data["education"])
 
     user.quiz_results = data["results"]

@@ -47,8 +47,8 @@ class User:
     def save_to_file(self):
         return {
             "username": self.username,
-            "password": self.password,
             "email": self.email,
+            "password": self.password,
             "education": self.education,
         }
 

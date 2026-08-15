@@ -312,7 +312,7 @@ careers = [
 def browse_careers():
     while True:
         print("====================== Available careers ======================")
-        for i, career in enumerate(careers, 0):
+        for i, career in enumerate(careers, 1):
             print(f"{i}. {career.name} ({career.sector})")
 
         choice = input("Enter a number to view career details, or 0 to go back to the start menu : ").strip()
@@ -320,7 +320,7 @@ def browse_careers():
         if choice == "0":
             break
         elif choice.isdigit() and 1 <= int(choice) <= len(careers):
-            careers[int(choice) - 1].display()
+            careers[int(choice) - 1].display_info()
             input("\nPress enter to continue.")
         else:
             print("Please enter a valid number for the list.")
@@ -335,7 +335,7 @@ def main_menu(user, users_dict):
         print("0. Logout")
         print("===================================================================================\n")
 
-        choice = input("Enter your option: ")
+        choice = input("Enter your option: ").strip()
 
         if choice == "0":
             print(f"Logging out. See you next time {user.username}!")

@@ -50,6 +50,7 @@ class User:
             "email": self.email,
             "password": self.password,
             "education": self.education,
+            "quiz_results": self.quiz_results
         }
 
 #creating class for quiz and questions
@@ -372,11 +373,11 @@ while True:
         break
     elif choice == "1":
         user = login(users_dict)
-        if user == True:
+        if user:
             main_menu(user, users_dict)
     elif choice == "2":
         user = sign_up(users_dict)
-        if user  == True:
+        if user:
             main_menu(user, users_dict)
     else:
         print("Please enter a valid option.")

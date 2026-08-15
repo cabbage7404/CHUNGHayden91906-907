@@ -324,6 +324,7 @@ def browse_careers():
             input("\nPress enter to continue.")
         else:
             print("Please enter a valid number for the list.")
+            input("\nPress enter to continue.")
 
 def main_menu(user, users_dict):
     while True:

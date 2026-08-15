@@ -217,7 +217,7 @@ def login(users_dict):
     data = users_dict[email]
     user = User(data["username"], data["email"], data["password"], data["education"])
 
-    user.quiz_results = data["results"]
+    user.quiz_results = data["quiz_results"]
     print(f"Welcome back {user.username}!")
     return user
 

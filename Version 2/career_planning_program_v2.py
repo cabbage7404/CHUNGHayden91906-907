@@ -73,7 +73,7 @@ class Question:
 
 #creating class for quiz
 class Quiz:
-    def __init__(self, questions):
+    def __init__(self):
         self.questions = [
             Question(
                 "What type of work environment do you prefer?",

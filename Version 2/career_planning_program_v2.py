@@ -3,7 +3,6 @@
 #importing json and os modules
 import json
 import os
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 #creating class for careers
 class Career:

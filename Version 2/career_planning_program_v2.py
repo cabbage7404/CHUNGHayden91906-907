@@ -26,12 +26,11 @@ class Career:
 
 #creating class for users and accounts
 class User:
-    def __init__(self, username, password, email, education, career_interest):
+    def __init__(self, username, password, email, education):
         self.username = username
         self.password = password
         self.email = email
         self.education = education
-        self.career_interest = career_interest
         self.quiz_results = None
 
     def display_profile(self):
@@ -39,7 +38,6 @@ class User:
         print(f"Username: {self.username}")
         print(f"Email: {self.email}")
         print(f"Education: {self.education}")
-        print(f"Career Interest: {self.career_interest}")
         if self.quiz_results:
             print(f"Quiz Results: {self.quiz_results}")
         else:
@@ -52,7 +50,6 @@ class User:
             "password": self.password,
             "email": self.email,
             "education": self.education,
-            "career_interest": self.career_interest,
         }
 
 #creating class for quiz and questions
@@ -146,9 +143,9 @@ def load_user():
                 return {}
             return json.loads(content)
 
-def save_user():
+def save_user(users_dict):
     with open("user_info.json", "w") as file:
-        json.dump(user_dict, file, indent = 4)
+        json.dump(users_dict, file, indent = 4)
 
 def validate_username(username):
     if username.strip() == "":
@@ -197,10 +194,10 @@ def sign_up(users_dict):
 
     education = input("Enter your highest level of education: ").strip()
 
-    new_user = User(email, name, password, education)
+    new_user = User(username, email, password, education)
     users_dict[email] = new_user.save_to_file()
     save_user(users_dict)
-    print(f"Account created successfully! Welcom to the career planner {username}!")
+    print(f"Account created successfully! Welcome to the career planner {username}!")
     return new_user
 
 def login(users_dict):

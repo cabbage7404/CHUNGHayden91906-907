@@ -3,6 +3,7 @@
         "username": "Hayden Chung",
         "email": "hayden.chung@my.bdsc.school.nz",
         "password": "12345678",
-        "education": "NCEA Level 3"
+        "education": "NCEA Level 3",
+        "quiz_results": null
     }
 }

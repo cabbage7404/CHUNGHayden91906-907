@@ -350,7 +350,7 @@ def main_menu(user, users_dict):
             print(f"Based on your answer from the quiz, your recommended sector is: {results}!")
             save_user(users_dict)
         elif choice == "3":
-            display_profile(user)
+            user.display_profile()
         else:
             print("Please enter a valid option.")
 

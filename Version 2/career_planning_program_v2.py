@@ -122,8 +122,8 @@ class Quiz:
         print("Answer the following questions to find the best career path for you.")
         print("=====================================================\n\n")
 
+        sector_scores = {}
         for question in self.questions:
-            sector_scores = {}
             answer_index = question.display_question()
             suggested_sector = question.sector_assign[answer_index]
             if suggested_sector in sector_scores:
@@ -131,8 +131,8 @@ class Quiz:
             else:
                 sector_scores[suggested_sector] = 1
 
-            best_sector = max(sector_scores)
-            return best_sector
+        best_sector = max(sector_scores)
+        return best_sector
 
 def load_user():
     if os.path.exists("user_info.json") == False:

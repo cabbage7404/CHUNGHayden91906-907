@@ -131,7 +131,7 @@ class Quiz:
             else:
                 sector_scores[suggested_sector] = 1
 
-        best_sector = max(sector_scores)
+        best_sector = max(sector_scores, key = sector_scores.get)
         return best_sector
 
 def load_user():

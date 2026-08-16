@@ -348,6 +348,8 @@ def main_menu(user, users_dict):
             results = quiz.run()
             print("====================== Quiz complete! ======================")
             print(f"Based on your answer from the quiz, your recommended sector is: {results}!")
+            user.quiz_results = results
+            users_dict[user.email]["quiz_results"] = results
             save_user(users_dict)
         elif choice == "3":
             user.display_profile()

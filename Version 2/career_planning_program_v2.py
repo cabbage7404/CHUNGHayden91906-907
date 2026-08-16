@@ -81,7 +81,7 @@ class Quiz:
                 "Helping and  caring for people",
                 "Working with numbers and data",
                 "Being creative and making things"],
-                {1: "Technology", 2: "Healthcare", 3: "Finance", 4: "Creative Arts"}
+                {0: "Technology", 1: "Healthcare", 2: "Finance", 3: "Creative Arts"}
             ),
             Question(
                 "Which activity sounds the most appealing to you?",
@@ -89,7 +89,7 @@ class Quiz:
                 "Teaching or mentoring someone",
                 "Analysing a financial report",
                 "Designing a logo or creating art"],
-                {1: "Technology", 2: "Education", 3: "Finance", 4: "Creative Arts"}
+                {0: "Technology", 1: "Education", 2: "Finance", 3: "Creative Arts"}
             ),
             Question(
                 "How do you prefer to solve problems?",
@@ -97,7 +97,7 @@ class Quiz:
                 "Talking it through with others",
                 "By researching laws or rules",
                 "Through creative thinking and brainstorming"],
-                {1: "Technology", 2: "Healthcare", 3: "Law", 4: "Creative Arts"}
+                {0: "Technology", 1: "Healthcare", 2: "Law", 3: "Creative Arts"}
             ),
             Question(
                 "What is most important to you in a career?",
@@ -105,7 +105,7 @@ class Quiz:
                 "Making a difference in people's lives",
                 "Stability and clear structure in work",
                 "Freedom to express creativity and innovate"],
-                {1: "Finance", 2: "Healthcare", 3: "Engineering", 4: "Creative Arts"}
+                {0: "Finance", 1: "Healthcare", 2: "Engineering", 3: "Creative Arts"}
             ),
             Question(
                 "Which subject did you most enjoy at school?",
@@ -113,7 +113,7 @@ class Quiz:
                 "English or Social Studies",
                 "Arts or Music",
                 "Physical Education or Sports"],
-                {1: "Engineering", 2: "Law", 3: "Creative Arts", 4: "Healthcare"}
+                {0: "Engineering", 1: "Law", 2: "Creative Arts", 3: "Healthcare"}
             )
         ]
 
@@ -345,7 +345,7 @@ def main_menu(user, users_dict):
             browse_careers()
         elif choice == "2":
             quiz = Quiz()
-            result = quiz.run()
+            results = quiz.run()
             print("====================== Quiz complete! ======================")
             print(f"Based on your answer from the quiz, your recommended sector is: {results}!")
             save_user(users_dict)

@@ -150,9 +150,9 @@ def save_user(users_dict):
 
 def validate_username(username):
     if username.strip() == "":
-        return True
+        return False
     elif username.replace(" ", "").isalpha() == False:
-        return True
+        return False
     else:
         return True
 
@@ -176,8 +176,8 @@ def validate_password(password):
 def sign_up(users_dict):
     print("====================== Sign-up ======================")
     username = input("Enter your name: ").strip()
-    validate_username(username)
-
+    if validate_username(username) == False:
+        return None
     email = input("Enter your email address: ").strip()
     if validate_email(email) == False:
         return None

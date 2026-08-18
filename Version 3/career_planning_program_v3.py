@@ -6,3 +6,8 @@ import hashlib
 import tkinter as tk
 from tkinter import messagebox, ttk
 
+def load_careers_from_file():
+    with open("careers.json", "r") as file:
+        data = json.load(file)
+    return data
+

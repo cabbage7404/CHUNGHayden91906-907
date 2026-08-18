@@ -99,3 +99,16 @@ class Quiz:
     def get_result(self):
         return max(self.sector_scores, key = self.sector_scores.get)
 
+def load_user():
+    try:
+        if os.path.exists("user_info.json") == False:
+            return {}
+        else:
+            with open("user_info.json", "r") as file:
+                content = file.read()
+                if content.strip() == "":
+                    return {}
+                return json.loads(content)
+    except json.JSONDecodeError:
+        messagebox.showerror("Error", "User data file is corrupted")
+        return {}

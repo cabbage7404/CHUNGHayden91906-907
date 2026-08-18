@@ -208,4 +208,81 @@ class Career_Planner_App:
         tk.Button(self.root, text = "Login", width = 20, command = login_attempt).pack(pady = 15)
         tk.Button(self.root, text = "Back", width = 20, command = self.show_start_screen).pack()
 
+    def show_signup(self):
+        self.clear_window()
+        tk.Label(self.root, text = "Sign Up", font = ("Arial", 20)).pack(pady = 20)
+
+        tk.Label(self.root, text = "Username: ").pack()
+        username_entry = tk.Entry(self.root, width = 30)
+        username_entry.pack(pady = 5)
+
+        tk.Label(self.root, text = "Email: ").pack()
+        email_entry = tk.Entry(self.root, width = 30)
+        email_entry.pack(pady = 5)
+
+        tk.Label(self.root, text = "Password: ").pack()
+        password_entry = tk.Entry(self.root, width = 30, show = "*")
+        password_entry.pack(pady = 5)
+
+        tk.Label(self.root, text = "Confirm password: ").pack()
+        confirm_password_entry = tk.Entry(self.root, width = 30, show = "*")
+        confirm_password_entry.pack(pady = 5)
+
+        tk.Label(self.root, text = "Highest Education Level: ").pack()
+        education_entry = tk.Entry(self.root, width = 30)
+        education_entry.pack(pady = 5)
+
+        def signup_attempt():
+            username = username_entry.get().strip()
+            email = email_entry.get().strip()
+            password = password_entry.get().strip()
+            confirm = confirm_password_entry.get().strip()
+            education = education_entry.get().strip()
+
+            validation_value, message = validate_username(username)
+            if validation_value == False:
+                messagebox.showerror("Invalid Input", message)
+                return
+            else:
+                None
+
+            validation_value, message = validate_email(email)
+            if validation_value == False:
+                messagebox.showerror("Invalid Input", message)
+                return
+            else:
+                None
+
+            if email in self.users_dict:
+                messagebox.showerror("Invalid Input", "An account with this email already exists.")
+                return
+
+            validation_value, message = validate_password(password)
+            if validation_value == False:
+                messagebox.showerror("Invalid Input", message)
+                return
+            else:
+                None
+
+            if password or confirm:
+                messagebox.showerror("Invalid Input", "Passwords do not match.")
+                return
+            else:
+                None
+
+            if education.strip() == "":
+                messagebox.showerror("Invalid Input", "Education field cannot be empty.")
+                return
+
+            hashed = hash_password(password)
+            new_user = User(username, email, hashed, education)
+            self.users_dict[email] = new_user.save_to_file()
+            save_users(self.users_dict)
+
+            self.current_user = new_user
+            messagebox.showinfo("Success!", f"Account created! Welcome, {username}!")
+            self.show_main_menu()
+
+        tk.Button(self.root, text = "Create Account", width = 20, command = signup_attempt).pack(pady = 15)
+        tk.Button(self.root, text = "Back", width = 20, command = self.show_start_screen).pack()
         

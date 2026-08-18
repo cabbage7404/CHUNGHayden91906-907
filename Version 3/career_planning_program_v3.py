@@ -25,3 +25,13 @@ def load_questions():
 
 careers_data = load_careers()
 questions_data = load_questions()
+
+class Career:
+    #initialising career attributes
+    def __init__(self, name, sector, salary, description, education_required):
+            self.name = name #career name attribute
+            self.sector = sector #career sector attribute
+            self.salary = salary #career salary attribute
+            self.description = description #career description attribute
+            self.education_required = education_required #career education attribute
+

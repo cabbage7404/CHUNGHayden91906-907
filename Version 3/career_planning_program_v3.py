@@ -130,3 +130,9 @@ def validate_username(username):
         return False, "Username must contain letters only"
     else:
         return True, ""
+
+def validate_email(email):
+    if "@" not in email or "." not in email:
+        return False, "Invalid email address"
+    else:
+        return True, ""

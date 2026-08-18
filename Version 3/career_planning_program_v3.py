@@ -112,3 +112,12 @@ def load_user():
     except json.JSONDecodeError:
         messagebox.showerror("Error", "User data file is corrupted")
         return {}
+
+def save_users(users_dict):
+    try:
+        with open("user_info.json", "w") as file:
+                json.dump(users_dict, file, indent = 4)
+    except IOError:
+        messagebox.showerror("Error", "Could not save user data")
+
+        

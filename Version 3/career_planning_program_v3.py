@@ -170,3 +170,42 @@ class Career_Planner_App:
         tk.Button(self.root, text = "Sign up", width = 20, command = self.show_signup).pack(pady = 10)
         tk.Button(self.root, text = "Exit", width = 20, command = self.root.quit).pack(pady = 10)
 
+    def show_login(self):
+        self.clear_window()
+        tk.Label(self.root, text = "Login", font = ("Arial", 20)).pack(pady = 30)
+
+        tk.Label(self.root, text = "Email: ").pack()
+        email_entry = tk.Entry(self.root, width = 30)
+        email_entry.pack(pady = 5)
+
+        tk.Label(self.root, text = "Password: ").pack()
+        password_entry = tk.Entry(self.root, width = 30, show = "*")
+        password_entry.pack(pady = 5)
+
+        def login_attempt():
+            email = email_entry.get().strip()
+            password = password_entry.get().strip()
+
+            if email not in self.users_dict:
+                messagebox.showerror("Login Failed", "No account found with that email")
+                self.show_start_screen()
+                return
+            else:
+                None
+
+            hashed = hash_password(password)
+            if self.users_dict[email]["password"] != hashed:
+                messagebox.showerror("Login Failed", "Incorrect password.")
+                return
+            else:
+                None
+
+            data = self.users_dict[email]
+            self.current_user = User(data["username"], data["email"], data["password"], data["education"])
+            self.current_user.quiz_results = data.get("quiz_results", None)
+            self.show_main_menu()
+
+        tk.Button(self.root, text = "Login", width = 20, command = login_attempt).pack(pady = 15)
+        tk.Button(self.root, text = "Back", width = 20, command = self.show_start_screen).pack()
+
+        

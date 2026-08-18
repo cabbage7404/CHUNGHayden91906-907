@@ -63,3 +63,10 @@ class User:
             "education": self.education,
             "quiz_results": self.quiz_results
         }
+
+class Question:
+    #initialising question attributes
+    def __init__(self, question_text, options, sector_assign):
+        self.question_text = question_text #question text attribute
+        self.options = options #question options attribute
+        self.sector_assign = sector_assign #sector assigned to question attribute

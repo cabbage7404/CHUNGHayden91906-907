@@ -46,3 +46,20 @@ def load_careers():
             item["education_required"]
         ))
     return careers
+
+class User:
+    def __init__(self, username, email, password, education):
+        self.username = username
+        self.email = email
+        self.password = password
+        self.education = education
+        self.quiz_results = None
+
+    def save_to_file(self):
+        return {
+            "username": self.username,
+            "email": self.email,
+            "password": self.password,
+            "education": self.education,
+            "quiz_results": self.quiz_results
+        }

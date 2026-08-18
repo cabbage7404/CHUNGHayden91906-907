@@ -158,3 +158,7 @@ class Career_Planner_App:
         self.quiz = None
         self.show_start_screen()
 
+    def clear_window(self):
+        for widget in self.root.winfo_children():
+            widget.destroy()
+

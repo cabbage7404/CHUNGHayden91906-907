@@ -123,3 +123,10 @@ def save_users(users_dict):
 def hash_password(password):
     return haslib.sha256(password.encode())
 
+def validate_username(username):
+    if username.strip() == "":
+        return False, "Username cannot be empty"
+    elif username.replace(" ", "").isalpha() == False:
+        return False, "Username must contain letters only"
+    else:
+        return True, ""

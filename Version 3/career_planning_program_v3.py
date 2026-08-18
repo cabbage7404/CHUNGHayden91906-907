@@ -162,3 +162,11 @@ class Career_Planner_App:
         for widget in self.root.winfo_children():
             widget.destroy()
 
+    def show_start_screen(self):
+        self.clear_window()
+        tk.Label(self.root, text = "Career Planner", font = ("Arial", 24)).pack(pady = 40)
+        tk.Label(self.root, text = "Welcome! please choose from an option below.", font = ("Arial", 12)).pack(pady = 10)
+        tk.Button(self.root, text = "Login", width = 20, command = self.show_login).pack(pady = 10)
+        tk.Button(self.root, text = "Sign up", width = 20, command = self.show_signup).pack(pady = 10)
+        tk.Button(self.root, text = "Exit", width = 20, command = self.root.quit).pack(pady = 10)
+

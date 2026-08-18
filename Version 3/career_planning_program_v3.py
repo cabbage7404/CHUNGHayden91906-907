@@ -146,3 +146,15 @@ def validate_password(password):
         return False, "Password must contain at least one number"
     else:
         return True, ""
+
+class Career_Planner_App:
+    def __init__(self, root):
+        self.root = root
+        self.roo.title("Career Planner")
+        self.root.geometry("900x700")
+        self.users_dict = load_users()
+        self.current_user = None
+        self.all_careers = Career.load_all()
+        self.quiz = None
+        self.show_start_screen()
+

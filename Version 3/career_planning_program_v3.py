@@ -120,4 +120,6 @@ def save_users(users_dict):
     except IOError:
         messagebox.showerror("Error", "Could not save user data")
 
-        
+def hash_password(password):
+    return haslib.sha256(password.encode())
+

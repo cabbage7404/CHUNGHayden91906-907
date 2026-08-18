@@ -23,3 +23,5 @@ def load_questions():
         messagebox.showerror("Error", "quiz_questions.json is corrupted")
         return []
 
+careers_data = load_careers()
+questions_data = load_questions()

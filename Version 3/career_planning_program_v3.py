@@ -35,3 +35,14 @@ class Career:
             self.description = description #career description attribute
             self.education_required = education_required #career education attribute
 
+def load_careers():
+    careers = []
+    for item in careers_data:
+        careers.append(Career(
+            item["name"]
+            item["sector"]
+            item["salary"]
+            item["description"]
+            item["education_required"]
+        ))
+    return careers

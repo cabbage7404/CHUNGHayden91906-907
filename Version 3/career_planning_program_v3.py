@@ -285,4 +285,14 @@ class Career_Planner_App:
 
         tk.Button(self.root, text = "Create Account", width = 20, command = signup_attempt).pack(pady = 15)
         tk.Button(self.root, text = "Back", width = 20, command = self.show_start_screen).pack()
+
+    def show_main_menu(self):
+        self.clear_window()
+        tk.Label(self.root, text = f"Welcome, {self.current_user.username}!", font = ("Arial", 20)).pack(pady = 20)
+        tk.Label(self.root, text = "What would you like to do?", font = ("Arial", 12)).pack(pady = 5)
+        tk.Button(self.root, text = "Browse Careers", width = 25, command = self.show_career_browser).pack(pady = 10)
+        tk.Button(self.root, text = "Take Career Quiz", width = 25, command = self.start_quiz).pack(pady = 10)
+        tk.Button(self.root, text = "View my profile", width = 25, command = self.show_profile).pack(pady = 10)
+        tk.Button(self.root, text = "Logout", width = 25, command = self.show_start_screen).pack(pady = 10)
+
         

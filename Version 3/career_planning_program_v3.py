@@ -70,3 +70,32 @@ class Question:
         self.question_text = question_text #question text attribute
         self.options = options #question options attribute
         self.sector_assign = sector_assign #sector assigned to question attribute
+
+class Quiz:
+    def __init__(self):
+        self.questions = []
+        for question in questions_data:
+            self.questions.append(Question(
+                question["question_text"],
+                question["options"]
+                question["sector_assign"]
+            ))
+
+    def get_current_question(self):
+        return self.question[self.current_index]
+
+    def submit_answer(self, answer_index):
+        question = self.get_current_question()
+        sector = question.sector_assign[answer_index]
+        if sector in self.sector_scores:
+            self.sector_scores[sector] += 1
+        else:
+            self.sector_scores[sector] = 1
+        self.current_index += 1
+
+    def is_finished(self):
+        return self.current_index >= len(self.questions)
+
+    def get_result(self):
+        return max(self.sector_scores, key = self.sector_scores.get)
+

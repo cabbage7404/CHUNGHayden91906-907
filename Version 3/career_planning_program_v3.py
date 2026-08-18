@@ -136,3 +136,13 @@ def validate_email(email):
         return False, "Invalid email address"
     else:
         return True, ""
+
+MIN_PASSWORD_LEN = 8
+
+def validate_password(password):
+    if len(password) < MIN_PASSWORD_LEN:
+        return False, "Password must be at least 8 characters"
+    if any(char.isdigit() for char in password) == False:
+        return False, "Password must contain at least one number"
+    else:
+        return True, ""

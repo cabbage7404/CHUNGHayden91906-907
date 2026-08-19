@@ -421,3 +421,10 @@ class Career_Planner_App:
             tk.Button(button_frame, text = "Back to Careers", width = 18, command = self.show_career_browser).pack(side = tk.LEFT, padx = 10)
             tk.Button(button_frame, text = "Home", width = 18, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
+    def start_quiz(self):
+        quiz = Quiz()
+        if quiz.questions == False:
+            messsagebox.showerror("Error", "No quiz questions found.")
+            return
+        self.show_quiz_question()
+    

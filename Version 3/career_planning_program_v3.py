@@ -99,7 +99,7 @@ class Quiz:
     def get_result(self):
         return max(self.sector_scores, key = self.sector_scores.get)
 
-def load_user():
+def load_users():
     try:
         if os.path.exists("user_info.json") == False:
             return {}
@@ -121,7 +121,7 @@ def save_users(users_dict):
         messagebox.showerror("Error", "Could not save user data")
 
 def hash_password(password):
-    return haslib.sha256(password.encode())
+    return hashlib.sha256(password.encode())
 
 def validate_username(username):
     if username.strip() == "":
@@ -311,7 +311,7 @@ class Career_Planner_App:
         sectors = ["All"] + sorted(set(c["sector"] for c in careers_data))
         sector_variable = tk.StringVar(value = "All")
         sector_menu = ttk.Combobox(filter_frame, textvariable = sector_variable, values = sectors, width = 15, state = "readonly")
-        sector_menu = grid(row = 0, column = 3, padx = 5)
+        sector_menu.grid(row = 0, column = 3, padx = 5)
 
         tk.Label(filter_frame, text = "Sort by: ").grid(row = 0, column = 4, padx = 5)
         sort_variable = tk.StringVar(value = "Name (A-Z)")
@@ -424,12 +424,12 @@ class Career_Planner_App:
     def start_quiz(self):
         quiz = Quiz()
         if quiz.questions == False:
-            messsagebox.showerror("Error", "No quiz questions found.")
+            messagebox.showerror("Error", "No quiz questions found.")
             return
         self.show_quiz_question()
 
     def show_quiz_questions(self):
-        self.clear window()
+        self.clear_window()
         if self.quiz is None:
             messagebox.showerro("Error", "Quiz not initialised.")
             self.show_main_menu()
@@ -505,8 +505,8 @@ class Career_Planner_App:
         for label, value in details:
             row = tk.Frame(detail_frame)
             row.pack(anchor = "w", pady = 6)
-            tk.Label(row, text = f"{label}:", font = ("Arial", 11, "bold"), width = 15, anchor = "w").pack(side = tik.LEFT)
-            tk.Label(row = text = value, font = ("Arial", 11)).pack(side = tk.LEFT)
+            tk.Label(row, text = f"{label}:", font = ("Arial", 11, "bold"), width = 15, anchor = "w").pack(side = tk.LEFT)
+            tk.Label(row, text = value, font = ("Arial", 11)).pack(side = tk.LEFT)
 
         button_frame = tk.Frame(self.root)
         button_frame.pack(pady = 20)

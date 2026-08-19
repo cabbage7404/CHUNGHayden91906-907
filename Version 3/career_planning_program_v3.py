@@ -455,3 +455,18 @@ class Career_Planner_App:
         for i, option in enumerate(question.options):
             tk.Radiobutton(self.root, text = option, variable = selected, value = i, font = ("Arial", 11)).pack(anchor = "w", padx = 80, pady = 4)
 
+        def submit():
+            if selected.get() == -1:
+                messagebox.showwarning("No answer", "Please select an answer before continuing.")
+                return
+            try:
+                self.quiz.submit_answer(selected.get())
+                self.show_quiz_question()
+            except KeyError:
+                messagebox.showerror("Error", "Quiz data error. Please restart the quiz.")
+                self.show_main_menu
+
+            tk.Button(self.root, text = "Next", width = 20, command = submit).pack(pady = 20)
+            tk.Button(self.root, text = "Cancel Quiz", width = 20, command = self.show_main_menu).pack()
+
+    

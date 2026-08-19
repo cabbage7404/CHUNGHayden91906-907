@@ -369,7 +369,7 @@ class Career_Planner_App:
                 listbox.delete(0, tk.END)
                 self.filtered_careers = results
                 for career in results:
-                    listbox.insert(tk.END, f"{career.name}   |   {career.sector}   |   ${career.salary}/year")
+                    listbox.insert(tk.END, f"{career.name}   |   {career.sector}   |   ${career.salary:,}/year")
 
                 if results == False:
                     listbox.insert(tk.END, "No careers found matching your search")
@@ -393,4 +393,31 @@ class Career_Planner_App:
             button_frame.pack(pady = 10)
             tk.Button(button_frame, text = "Home", width = 15, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
-            
+    def filter_by_sector(self, sector, sector_variable, search_variable, sort_variable, listbox):
+        sector_variable.set(sector)
+
+    def show_career_details(self, career):
+        self.clear_window()
+        tk.Label(self.root, text = career.name, font = ("Arial", 22)).pack(pady = 20)
+
+        detail_frame = tk.Frame(self.root)
+        detail_frame.pack(pady = 40, pady = 10, anchor = "w")
+
+        details = [
+            ("sector", career.sector),
+            ("Average Salary", f"${career.salary:,} per year")
+            ("Education required", career.education_required),
+            ("Description", career.description)
+        ]
+
+        for label, value in details:
+            row = tk.Frame(detail_frame)
+            row.pack(anchor = "w", pady = 4)
+            tk.Label(row, text = f"{label}:", font = ("Arial", 11, "bold"), width = 20, anchor = "w").pack(side = tk.LEFT)
+            tk.Label(row, text = value, font = ("Arial", 11), wraplength = 500, justify = "left").pack(side = tk.LEFT)
+
+            button_frame = tk.Frame(self.root)
+            button_frame.pack(pady = 20)
+            tk.Button(button_frame, text = "Back to Careers", width = 18, command = self.show_career_browser).pack(side = tk.LEFT, padx = 10)
+            tk.Button(button_frame, text = "Home", width = 18, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
+

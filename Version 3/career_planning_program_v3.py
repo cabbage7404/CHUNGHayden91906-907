@@ -427,4 +427,31 @@ class Career_Planner_App:
             messsagebox.showerror("Error", "No quiz questions found.")
             return
         self.show_quiz_question()
-    
+
+    def show_quiz_questions(self):
+        self.clear window()
+        if self.quiz is None:
+            messagebox.showerro("Error", "Quiz not initialised.")
+            self.show_main_menu()
+            return
+        else:
+            None
+
+        if self.quiz.is_finished():
+            self.show_quiz_results
+            return
+        else:
+            None
+
+        question = self.quiz.get_current_question()
+        total = len(self.quiz.questions)
+        current = self.quiz.current_index + 1
+
+        tk.Label(self.root, text = f"Question {current} of {total}", font = ("Arial", 13)).pack(pady = 15)
+        tk.Label(self.root, text = question.question_text, font = ("Arial", 13), wraplength = 700).pack(pady = 10)
+
+        selected = tk.IntVar(value =- 1)
+
+        for i, option in enumerate(question.options):
+            tk.Radiobutton(self.root, text = option, variable = selected, value = i, font = ("Arial", 11)).pack(anchor = "w", padx = 80, pady = 4)
+

@@ -514,4 +514,47 @@ class Career_Planner_App:
         tk.Button(button_frame, text = "Retake Quiz", width = 18, command = self.start_quiz).pack(side = tk.LEFT, padx = 10)
         tk.Button(button_frame, text = "Home", width = 18, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
+    def show_edit_profile(self):
+        self.clear_window()
+        tk.Label(self.root, text = "Edit Profile", font = ("Arial", 20)).pack(pady = 20)
+
+        tk.Label(self.root, text = "Name").pack()
+        username_entry = tk.Entry(self.root, width = 30)
+        username_entry.insert(0, self.current_user.username)
+        username_entry.pack(pady = 5)
+
+        tk.Label(self.root, text = "Education: ").pack()
+        education_entry = tk.Entry(self.root, width = 30)
+        education_entry.insert(0, self.current_user.education)
+        education_entry.pack(pady = 5)
+
+        def save_changes():
+            new_username = username_entry.get().strip()
+            new_education = education_entry.get().strip()
+
+            valid, message = validate_username(new_username)
+            if not valid:
+                messagebox.showerror("Invalid Input", message)
+                return
+            else:
+                None
+
+            if new_education == "":
+                messagebox.showerror("Invalid Input", "Education cannot be empty.")
+                return
+            else:
+                None
+
+            self.current_user.username = new_username
+            self.current_user.education = new_education
+
+            self.users_dict[self.current_user.username] = self.current_user.save_to_file()
+            save_users(self.users_dict)
+
+            messagebox.showinfo("Success", "Profile updated successfully!")
+            self.show_profile()
+
+        tk.Button(self.root, text = "Save Changes", width = 20, command = save_changes).pack(pady = 15)
+        tk.Button(self.root, text = "Cancel", width = 20, command = self.show_profile).pack()
+
         

@@ -379,4 +379,18 @@ class Career_Planner_App:
             sort_variable.trace("w", refresh_list)
             refresh_list()
 
+            def on_select(event):
+                selection = listbox.curselection()
+                if selection == False:
+                    return
+                index = selection[0]
+                if index < len(self.filtered_careers):
+                    self.showcareer_detail(self.filtered_careers[index])
+
+            listbox.bind("<<ListboxSelect>>", on_select)
+
+            button_frame = tk.frame(self.root)
+            button_frame.pack(pady = 10)
+            tk.Button(button_frame, text = "Home", width = 15, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
+
             

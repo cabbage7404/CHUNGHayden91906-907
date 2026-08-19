@@ -469,4 +469,20 @@ class Career_Planner_App:
             tk.Button(self.root, text = "Next", width = 20, command = submit).pack(pady = 20)
             tk.Button(self.root, text = "Cancel Quiz", width = 20, command = self.show_main_menu).pack()
 
-    
+    def show_quiz_results(self):
+        self.clear_window()
+        result = self.quiz.get_result()
+
+        tk.Label(self.root, text = "Quiz Complete!", font = ("Arial, 22")).pack(pady = 20)
+        tk.Label(self.root, text = "Based on your answerrs, your recommended sector is: ", font = ("Arial", 13)).pack(pady = 5)
+        tk.Label(self.root, text = result, font = ("Arial", 18, "bold")).pack(pady = 10)
+
+        tk.Label(self.root, text = "Careers in this sector: ", font = ("Arial", 12)).pack(pady = 5)
+        matches = [career for career in self.all_careers if career.sector == result]
+        for career in matches:
+            tk.Label(self.root, text = f"- {career.name}", font = ("Arial", 11)).pack()
+
+        self.current_user.quiz_results = result
+
+        tk.Button(self.root, text = "Home", width = 20, command = self.show_main_menu).pack(pady = 20)
+

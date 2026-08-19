@@ -557,4 +557,6 @@ class Career_Planner_App:
         tk.Button(self.root, text = "Save Changes", width = 20, command = save_changes).pack(pady = 15)
         tk.Button(self.root, text = "Cancel", width = 20, command = self.show_profile).pack()
 
-        
+root = tk.Tk()
+app = Career_Planner_App(root)
+root.mainloop()

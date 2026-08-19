@@ -486,3 +486,32 @@ class Career_Planner_App:
 
         tk.Button(self.root, text = "Home", width = 20, command = self.show_main_menu).pack(pady = 20)
 
+    def show_profile(self):
+        self.clear_window()
+        tk.Label(self.root, text = "My Profile", font = ("Arial", 20)).pakc(pady = 20)
+
+        detail_frame = tk.Frame(self.root)
+        detail_frame.pack(padx = 40, pady = 10, anchor = "w")
+
+        details = [
+            ("Name", self.curent_user.name),
+            ("Email", self.current_user.email),
+            ("Education", self.current_user.education),
+            ("Quiz results", self.current_user.quiz_reults 
+             if self.current_user.quiz_results
+             else "Not yet taken")
+        ]
+
+        for label, value in details:
+            row = tk.Frame(detail_frame)
+            row.pack(anchor = "w", pady = 6)
+            tk.Label(row, text = f"{label}:", font = ("Arial", 11, "bold"), width = 15, anchor = "w").pack(side = tik.LEFT)
+            tk.Label(row = text = value, font = ("Arial", 11)).pack(side = tk.LEFT)
+
+        button_frame = tk.Frame(self.root)
+        button_frame.pack(pady = 20)
+        tk.Button(button_frame, text = "Edit Profile", width = 18, command = self.show_edit_profile).pack(side = tk.LEFT, padx = 10)
+        tk.Button(button_frame, text = "Retake Quiz", width = 18, command = self.start_quiz).pack(side = tk.LEFT, padx = 10)
+        tk.Button(button_frame, text = "Home", width = 18, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
+
+        

@@ -1,0 +1,107 @@
+[
+    {
+        "name": "Software Engineer",
+        "sector": "Technology",
+        "salary": 100000,
+        "description": "Designs and develops software applications and systems.",
+        "education_required": "Bachelor's Degree in Computer Science or related field"
+    },
+    {
+        "name": "Data Scientist",
+        "sector": "Technology",
+        "salary": 120000,
+        "description": "Analyzes and interprets complex datasets to help organizations make informed decisions.",
+        "education_required": "Bachelor's or Master's Degree in Data Science or related field"
+    },
+    {
+        "name": "Cybersecurity Analyst",
+        "sector": "Technology",
+        "salary": 85000,
+        "description": "Analyzes and protects an organization's computer systems and networks from cyber threats.",
+        "education_required": "Bachelor's Degree in Cybersecurity or IT"
+    },
+    {
+        "name": "Doctor",
+        "sector": "Healthcare",
+        "salary": 150000,
+        "description": "Diagnoses and treats illnesses and injuries in patients.",
+        "education_required": "Medical Degree (MBChB) and residency training"
+    },
+    {
+        "name": "Nurse",
+        "sector": "Healthcare",
+        "salary": 65000,
+        "description": "Provides and coordinates patient care in various healthcare settings.",
+        "education_required": "Bachelor's Degree in Nursing"
+    },
+    {
+        "name": "Pharmacist",
+        "sector": "Healthcare",
+        "salary": 120000,
+        "description": "Dispenses medications and provides pharmaceutical care to patients.",
+        "education_required": "Bachelor's or Doctor of Pharmacy (PharmD) degree"
+    },
+    {
+        "name": "Psychologist",
+        "sector": "Healthcare",
+        "salary": 85000,
+        "description": "Studies human behavior and mental processes, and provides therapy and counseling.",
+        "education_required": "Master's or Doctoral Degree in Psychology and licensure"
+    },
+    {
+        "name": "Accountant",
+        "sector": "Finance",
+        "salary": 70000,
+        "description": "Prepares and examines financial records and reports.",
+        "education_required": "Bachelor's Degree in Accounting or related field"
+    },
+    {
+        "name": "Financial Analyst",
+        "sector": "Finance",
+        "salary": 80000,
+        "description": "Analyzes financial data and provides insights for investment decisions.",
+        "education_required": "Bachelor's Degree in Finance or Economics"
+    },
+    {
+        "name": "Teacher",
+        "sector": "Education",
+        "salary": 55000,
+        "description": "Educates students in specific subject areas and develops lesson plans.",
+        "education_required": "Bachelor's Degree in Education or subject degree and teaching certification"
+    },
+    {
+        "name": "Graphic Designer",
+        "sector": "Creative Arts",
+        "salary": 60000,
+        "description": "Creates visual concepts and designs for various media and platforms.",
+        "education_required": "Bachelor's Degree in Graphic Design or related field"
+    },
+    {
+        "name": "Architect",
+        "sector": "Engineering",
+        "salary": 85000,
+        "description": "Designs buildings and structures, ensuring they are safe, functional, and aesthetically pleasing.",
+        "education_required": "Bachelor's or Master's Degree in Architecture and licensure"
+    },
+    {
+        "name": "Civil Engineer",
+        "sector": "Engineering",
+        "salary": 80000,
+        "description": "Designs and supervises the construction of infrastructure projects like roads and bridges.",
+        "education_required": "Bachelor's Degree in Civil Engineering and licensure"
+    },
+    {
+        "name": "Marketing Manager",
+        "sector": "Business",
+        "salary": 75000,
+        "description": "Develops and implements marketing strategies to promote products or services.",
+        "education_required": "Bachelor's Degree in Marketing or related field"
+    },
+    {
+        "name": "Lawyer",
+        "sector": "Law",
+        "salary": 110000,
+        "description": "Represents clients in legal matters and provides legal advice.",
+        "education_required": "Law Degree (LLB) and Bar Exam"
+    }
+]

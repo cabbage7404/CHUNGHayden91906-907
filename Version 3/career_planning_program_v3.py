@@ -264,7 +264,7 @@ class Career_Planner_App:
             else:
                 None
 
-            if password or confirm:
+            if password != confirm:
                 messagebox.showerror("Invalid Input", "Passwords do not match.")
                 return
             else:

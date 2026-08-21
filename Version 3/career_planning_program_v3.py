@@ -188,7 +188,6 @@ class Career_Planner_App:
 
             if email not in self.users_dict:
                 messagebox.showerror("Login Failed", "No account found with that email")
-                self.show_start_screen()
                 return
             else:
                 None

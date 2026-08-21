@@ -80,6 +80,9 @@ class Quiz:
                 question["options"],
                 question["sector_assign"]
             ))
+        self.current_index = 0
+        self.sector_score = {}
+        
 
     def get_current_question(self):
         return self.question[self.current_index]
@@ -422,7 +425,7 @@ class Career_Planner_App:
 
     def start_quiz(self):
         self.quiz = Quiz()
-        if quiz.questions == False:
+        if self.quiz.questions == False:
             messagebox.showerror("Error", "No quiz questions found.")
             return
         self.show_quiz_questions()

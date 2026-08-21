@@ -331,66 +331,66 @@ class Career_Planner_App:
             button = tk.Button(grid_frame, text = sector, width = 15, command = lambda s = sector: self.filter_by_sector(s, sector_variable, search_variable, sort_variable, listbox))
             button.grid(row = i // 4, column = i % 4, padx = 5, pady = 5)
 
-            tk.Label(self.root, text = "Results: ", font = ("Arial", 11)).pack()
-            listbox_frame = tk.Frame(self.root)
-            listbox_frame.pack(fill = tk.BOTH, expand = True, padx = 20, pady = 5)
+        tk.Label(self.root, text = "Results: ", font = ("Arial", 11)).pack()
+        listbox_frame = tk.Frame(self.root)
+        listbox_frame.pack(fill = tk.BOTH, expand = True, padx = 20, pady = 5)
 
-            scrollbar = tk.Scrollbar(listbox_frame)
-            scrollbar.pack(side = tk.RIGHT, fill = tk.Y)
-            listbox = tk.Listbox(listbox_frame, yscrollcommand = scrollbar.set, font = ("Arial", 11), height = 8)
-            listbox.pack(fill = tk.BOTH, expand = True)
-            scrollbar.config(command = listbox.yview)
+        scrollbar = tk.Scrollbar(listbox_frame)
+        scrollbar.pack(side = tk.RIGHT, fill = tk.Y)
+        listbox = tk.Listbox(listbox_frame, yscrollcommand = scrollbar.set, font = ("Arial", 11), height = 8)
+        listbox.pack(fill = tk.BOTH, expand = True)
+        scrollbar.config(command = listbox.yview)
 
-            self.filtered_careers = self.all_careers[:]
+        self.filtered_careers = self.all_careers[:]
 
-            def refresh_list(*args):
-                query = search_variable.get().lower()
-                sector = sector_variable.get()
-                sort = sort_variable.get()
+        def refresh_list(*args):
+            query = search_variable.get().lower()
+            sector = sector_variable.get()
+            sort = sort_variable.get()
 
-                results = []
-                for career in self.all_careers:
-                    if query and query not in career.name.lower():
-                        continue
-                    if sector != "All" and career.sector != sector:
-                        continue
-                    results.append(career)
+            results = []
+            for career in self.all_careers:
+                if query and query not in career.name.lower():
+                    continue
+                if sector != "All" and career.sector != sector:
+                    continue
+                results.append(career)
 
-                if sort == "Name (A-Z)":
-                    results.sort(key = lambda career: career.name)
-                elif sort == "Name (Z-A)":
-                    results.sort(key = lambda career: career.name, reverse = True)
-                elif sort == "Salary (High-Low)":
-                    results.sort(key = lambda career: career.name, reverse = True)
-                elif sort == "Salary (Low-High)":
-                    results.sort(key = lambda career: career.name)
+            if sort == "Name (A-Z)":
+                results.sort(key = lambda career: career.name)
+            elif sort == "Name (Z-A)":
+                results.sort(key = lambda career: career.name, reverse = True)
+            elif sort == "Salary (High-Low)":
+                results.sort(key = lambda career: career.name, reverse = True)
+            elif sort == "Salary (Low-High)":
+                results.sort(key = lambda career: career.name)
 
-                listbox.delete(0, tk.END)
-                self.filtered_careers = results
-                for career in results:
-                    listbox.insert(tk.END, f"{career.name}   |   {career.sector}   |   ${career.salary:,}/year")
+            listbox.delete(0, tk.END)
+            self.filtered_careers = results
+            for career in results:
+                listbox.insert(tk.END, f"{career.name}   |   {career.sector}   |   ${career.salary:,}/year")
 
-                if results == False:
-                    listbox.insert(tk.END, "No careers found matching your search")
+            if results == False:
+                listbox.insert(tk.END, "No careers found matching your search")
 
-            search_variable.trace("w", refresh_list)
-            sector_variable.trace("w", refresh_list)
-            sort_variable.trace("w", refresh_list)
-            refresh_list()
+        search_variable.trace_add("write", refresh_list)
+        sector_variable.trace_add("write", refresh_list)
+        sort_variable.trace_add("write", refresh_list)
+        refresh_list()
 
-            def on_select(event):
-                selection = listbox.curselection()
-                if selection == False:
-                    return
-                index = selection[0]
-                if index < len(self.filtered_careers):
-                    self.showcareer_detail(self.filtered_careers[index])
+        def on_select(event):
+            selection = listbox.curselection()
+            if selection == False:
+                return
+            index = selection[0]
+            if index < len(self.filtered_careers):
+                self.showcareer_detail(self.filtered_careers[index])
 
-            listbox.bind("<<ListboxSelect>>", on_select)
+        listbox.bind("<<ListboxSelect>>", on_select)
 
-            button_frame = tk.Frame(self.root)
-            button_frame.pack(pady = 10)
-            tk.Button(button_frame, text = "Home", width = 15, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
+        button_frame = tk.Frame(self.root)
+        button_frame.pack(pady = 10)
+        tk.Button(button_frame, text = "Home", width = 15, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
     def filter_by_sector(self, sector, sector_variable, search_variable, sort_variable, listbox):
         sector_variable.set(sector)

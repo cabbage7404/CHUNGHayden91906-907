@@ -388,7 +388,7 @@ class Career_Planner_App:
 
             listbox.bind("<<ListboxSelect>>", on_select)
 
-            button_frame = tk.frame(self.root)
+            button_frame = tk.Frame(self.root)
             button_frame.pack(pady = 10)
             tk.Button(button_frame, text = "Home", width = 15, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 

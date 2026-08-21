@@ -380,11 +380,11 @@ class Career_Planner_App:
 
         def on_select(event):
             selection = listbox.curselection()
-            if selection == False:
+            if not selection:
                 return
             index = selection[0]
             if index < len(self.filtered_careers):
-                self.showcareer_detail(self.filtered_careers[index])
+                self.show_career_details(self.filtered_careers[index])
 
         listbox.bind("<<ListboxSelect>>", on_select)
 

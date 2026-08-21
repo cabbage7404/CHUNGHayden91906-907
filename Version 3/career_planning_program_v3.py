@@ -6,7 +6,7 @@ import hashlib
 import tkinter as tk
 from tkinter import messagebox, ttk
 
-def load_careers():
+def load_careers_from_file():
     with open("careers.json", "r") as file:
         data = json.load(file)
     return data
@@ -23,7 +23,7 @@ def load_questions():
         messagebox.showerror("Error", "quiz_questions.json is corrupted")
         return []
 
-careers_data = load_careers()
+careers_data = load_careers_from_file()
 questions_data = load_questions()
 
 class Career:
@@ -35,17 +35,17 @@ class Career:
             self.description = description #career description attribute
             self.education_required = education_required #career education attribute
 
-def load_careers():
-    careers = []
-    for item in careers_data:
-        careers.append(Career(
-            item["name"],
-            item["sector"],
-            item["salary"],
-            item["description"],
-            item["education_required"]
-        ))
-    return careers
+    def load_all_careers():
+        careers = []
+        for item in careers_data:
+            careers.append(Career(
+                item["name"],
+                item["sector"],
+                item["salary"],
+                item["description"],
+                item["education_required"]
+            ))
+        return careers
 
 class User:
     def __init__(self, username, email, password, education):
@@ -77,7 +77,7 @@ class Quiz:
         for question in questions_data:
             self.questions.append(Question(
                 question["question_text"],
-                question["options"]
+                question["options"],
                 question["sector_assign"]
             ))
 
@@ -150,11 +150,11 @@ def validate_password(password):
 class Career_Planner_App:
     def __init__(self, root):
         self.root = root
-        self.roo.title("Career Planner")
+        self.root.title("Career Planner")
         self.root.geometry("900x700")
         self.users_dict = load_users()
         self.current_user = None
-        self.all_careers = Career.load_all()
+        self.all_careers = Career.load_all_careers()
         self.quiz = None
         self.show_start_screen()
 
@@ -401,11 +401,11 @@ class Career_Planner_App:
         tk.Label(self.root, text = career.name, font = ("Arial", 22)).pack(pady = 20)
 
         detail_frame = tk.Frame(self.root)
-        detail_frame.pack(pady = 40, pady = 10, anchor = "w")
+        detail_frame.pack(padx = 40, pady = 10, anchor = "w")
 
         details = [
             ("sector", career.sector),
-            ("Average Salary", f"${career.salary:,} per year")
+            ("Average Salary", f"${career.salary:,} per year"),
             ("Education required", career.education_required),
             ("Description", career.description)
         ]
@@ -431,7 +431,7 @@ class Career_Planner_App:
     def show_quiz_questions(self):
         self.clear_window()
         if self.quiz is None:
-            messagebox.showerro("Error", "Quiz not initialised.")
+            messagebox.showerror("Error", "Quiz not initialised.")
             self.show_main_menu()
             return
         else:

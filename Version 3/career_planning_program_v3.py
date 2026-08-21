@@ -425,7 +425,7 @@ class Career_Planner_App:
         if quiz.questions == False:
             messagebox.showerror("Error", "No quiz questions found.")
             return
-        self.show_quiz_question()
+        self.show_quiz_questions()
 
     def show_quiz_questions(self):
         self.clear_window()

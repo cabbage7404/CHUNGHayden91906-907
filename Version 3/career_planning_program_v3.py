@@ -81,7 +81,7 @@ class Quiz:
                 question["sector_assign"]
             ))
         self.current_index = 0
-        self.sector_score = {}
+        self.sector_scores = {}
         
 
     def get_current_question(self):
@@ -89,7 +89,7 @@ class Quiz:
 
     def submit_answer(self, answer_index):
         question = self.get_current_question()
-        sector = question.sector_assign[answer_index]
+        sector = question.sector_assign[str(answer_index)]
         if sector in self.sector_scores:
             self.sector_scores[sector] += 1
         else:
@@ -463,13 +463,13 @@ class Career_Planner_App:
                 return
             try:
                 self.quiz.submit_answer(selected.get())
-                self.show_quiz_question()
+                self.show_quiz_questions()
             except KeyError:
                 messagebox.showerror("Error", "Quiz data error. Please restart the quiz.")
                 self.show_main_menu
 
-            tk.Button(self.root, text = "Next", width = 20, command = submit).pack(pady = 20)
-            tk.Button(self.root, text = "Cancel Quiz", width = 20, command = self.show_main_menu).pack()
+        tk.Button(self.root, text = "Next", width = 20, command = submit).pack(pady = 20)
+        tk.Button(self.root, text = "Cancel Quiz", width = 20, command = self.show_main_menu).pack()
 
     def show_quiz_results(self):
         self.clear_window()

@@ -403,7 +403,7 @@ class Career_Planner_App:
         detail_frame.pack(padx = 40, pady = 10, anchor = "w")
 
         details = [
-            ("sector", career.sector),
+            ("Sector", career.sector),
             ("Average Salary", f"${career.salary:,} per year"),
             ("Education required", career.education_required),
             ("Description", career.description)
@@ -415,10 +415,10 @@ class Career_Planner_App:
             tk.Label(row, text = f"{label}:", font = ("Arial", 11, "bold"), width = 20, anchor = "w").pack(side = tk.LEFT)
             tk.Label(row, text = value, font = ("Arial", 11), wraplength = 500, justify = "left").pack(side = tk.LEFT)
 
-            button_frame = tk.Frame(self.root)
-            button_frame.pack(pady = 20)
-            tk.Button(button_frame, text = "Back to Careers", width = 18, command = self.show_career_browser).pack(side = tk.LEFT, padx = 10)
-            tk.Button(button_frame, text = "Home", width = 18, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
+        button_frame = tk.Frame(self.root)
+        button_frame.pack(pady = 20)
+        tk.Button(button_frame, text = "Back to Careers", width = 18, command = self.show_career_browser).pack(side = tk.LEFT, padx = 10)
+        tk.Button(button_frame, text = "Home", width = 18, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
     def start_quiz(self):
         quiz = Quiz()

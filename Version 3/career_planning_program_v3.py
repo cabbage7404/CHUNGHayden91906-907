@@ -475,7 +475,7 @@ class Career_Planner_App:
         self.clear_window()
         result = self.quiz.get_result()
 
-        tk.Label(self.root, text = "Quiz Complete!", font = ("Arial, 22")).pack(pady = 20)
+        tk.Label(self.root, text = "Quiz Complete!", font = ("Arial", 22)).pack(pady = 20)
         tk.Label(self.root, text = "Based on your answerrs, your recommended sector is: ", font = ("Arial", 13)).pack(pady = 5)
         tk.Label(self.root, text = result, font = ("Arial", 18, "bold")).pack(pady = 10)
 

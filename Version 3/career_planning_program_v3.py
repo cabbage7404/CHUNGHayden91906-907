@@ -121,7 +121,7 @@ def save_users(users_dict):
         messagebox.showerror("Error", "Could not save user data")
 
 def hash_password(password):
-    return hashlib.sha256(password.encode())
+    return hashlib.sha256(password.encode()).hexdigest()
 
 def validate_username(username):
     if username.strip() == "":

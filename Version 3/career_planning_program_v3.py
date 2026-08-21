@@ -85,7 +85,7 @@ class Quiz:
         
 
     def get_current_question(self):
-        return self.question[self.current_index]
+        return self.questions[self.current_index]
 
     def submit_answer(self, answer_index):
         question = self.get_current_question()

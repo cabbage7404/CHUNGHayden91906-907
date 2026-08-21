@@ -212,7 +212,7 @@ class Career_Planner_App:
         self.clear_window()
         tk.Label(self.root, text = "Sign Up", font = ("Arial", 20)).pack(pady = 20)
 
-        tk.Label(self.root, text = "Username: ").pack()
+        tk.Label(self.root, text = "Name: ").pack()
         username_entry = tk.Entry(self.root, width = 30)
         username_entry.pack(pady = 5)
 

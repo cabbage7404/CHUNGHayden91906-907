@@ -421,7 +421,7 @@ class Career_Planner_App:
         tk.Button(button_frame, text = "Home", width = 18, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
     def start_quiz(self):
-        quiz = Quiz()
+        self.quiz = Quiz()
         if quiz.questions == False:
             messagebox.showerror("Error", "No quiz questions found.")
             return

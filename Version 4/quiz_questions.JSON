@@ -1,0 +1,52 @@
+[
+    {
+        "question_text": "What type of work environment do you prefer?",
+        "options": [
+            "Working with technology and computers",
+            "Helping and caring for people",
+            "Working with numbers and data",
+            "Being creative and making things"
+        ],
+        "sector_assign": {"0": "Technology", "1": "Healthcare", "2": "Finance", "3": "Creative Arts"}
+    },
+    {
+        "question_text": "Which activity sounds the most appealing to you?",
+        "options": [
+            "Building or coding an app",
+            "Teaching or mentoring someone",
+            "Analysing a financial report",
+            "Designing a logo or creating art"
+        ],
+        "sector_assign": {"0": "Technology", "1": "Education", "2": "Finance", "3": "Creative Arts"}
+    },
+    {
+        "question_text": "How do you prefer to solve problems?",
+        "options": [
+            "Logically, step-by-step",
+            "Talking it through with others",
+            "By researching laws or rules",
+            "Through creative thinking and brainstorming"
+        ],
+        "sector_assign": {"0": "Technology", "1": "Healthcare", "2": "Law", "3": "Creative Arts"}
+    },
+    {
+        "question_text": "What is most important to you in a career?",
+        "options": [
+            "A high salary and financial security",
+            "Making a difference in people's lives",
+            "Stability and clear structure in work",
+            "Freedom to express creativity and innovate"
+        ],
+        "sector_assign": {"0": "Finance", "1": "Healthcare", "2": "Engineering", "3": "Creative Arts"}
+    },
+    {
+        "question_text": "Which subject did you most enjoy at school?",
+        "options": [
+            "Maths or Science",
+            "English or Social Studies",
+            "Arts or Music",
+            "Physical Education or Sports"
+        ],
+        "sector_assign": {"0": "Engineering", "1": "Law", "2": "Creative Arts", "3": "Healthcare"}
+    }
+]

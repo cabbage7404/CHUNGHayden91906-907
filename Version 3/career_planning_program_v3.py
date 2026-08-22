@@ -485,6 +485,8 @@ class Career_Planner_App:
             tk.Label(self.root, text = f"- {career.name}", font = ("Arial", 11)).pack()
 
         self.current_user.quiz_results = result
+        self.users_dict[self.current_user.email]["quiz_results"]= result
+        save_users(self.users_dict)
 
         tk.Button(self.root, text = "Home", width = 20, command = self.show_main_menu).pack(pady = 20)
 

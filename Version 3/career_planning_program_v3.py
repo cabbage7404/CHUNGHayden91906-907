@@ -490,7 +490,7 @@ class Career_Planner_App:
 
     def show_profile(self):
         self.clear_window()
-        tk.Label(self.root, text = "My Profile", font = ("Arial", 20)).pakc(pady = 20)
+        tk.Label(self.root, text = "My Profile", font = ("Arial", 20)).pack(pady = 20)
 
         detail_frame = tk.Frame(self.root)
         detail_frame.pack(padx = 40, pady = 10, anchor = "w")

@@ -425,7 +425,7 @@ class Career_Planner_App:
 
     def start_quiz(self):
         self.quiz = Quiz()
-        if self.quiz.questions == False:
+        if not self.quiz.questions:
             messagebox.showerror("Error", "No quiz questions found.")
             return
         self.show_quiz_questions()
@@ -466,7 +466,7 @@ class Career_Planner_App:
                 self.show_quiz_questions()
             except KeyError:
                 messagebox.showerror("Error", "Quiz data error. Please restart the quiz.")
-                self.show_main_menu
+                self.show_main_menu()
 
         tk.Button(self.root, text = "Next", width = 20, command = submit).pack(pady = 20)
         tk.Button(self.root, text = "Cancel Quiz", width = 20, command = self.show_main_menu).pack()
@@ -476,7 +476,7 @@ class Career_Planner_App:
         result = self.quiz.get_result()
 
         tk.Label(self.root, text = "Quiz Complete!", font = ("Arial", 22)).pack(pady = 20)
-        tk.Label(self.root, text = "Based on your answerrs, your recommended sector is: ", font = ("Arial", 13)).pack(pady = 5)
+        tk.Label(self.root, text = "Based on your answers, your recommended sector is: ", font = ("Arial", 13)).pack(pady = 5)
         tk.Label(self.root, text = result, font = ("Arial", 18, "bold")).pack(pady = 10)
 
         tk.Label(self.root, text = "Careers in this sector: ", font = ("Arial", 12)).pack(pady = 5)

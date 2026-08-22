@@ -440,7 +440,7 @@ class Career_Planner_App:
             None
 
         if self.quiz.is_finished():
-            self.show_quiz_results
+            self.show_quiz_results()
             return
         else:
             None

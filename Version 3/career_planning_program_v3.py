@@ -395,7 +395,7 @@ class Career_Planner_App:
         button_frame.pack(pady = 10)
         tk.Button(button_frame, text = "Home", width = 15, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
-    def filter_by_sector(self, sector, sector_variable, search_variable, sort_variable, listbox):
+    def filter_by_sector(self, sector, sector_variable):
         sector_variable.set(sector)
 
     def show_career_details(self, career):

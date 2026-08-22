@@ -418,12 +418,13 @@ class Career_Planner_App:
             elif sort == "Salary (Low-High)":
                 results.sort(key = lambda career: career.salary)
 
+            #clears list box widget and adds filtered careers in
             listbox.delete(0, tk.END)
             self.filtered_careers = results
             for career in results:
                 listbox.insert(tk.END, f"{career.name}   |   {career.sector}   |   ${career.salary:,}/year")
 
-            if results == False:
+            if not results:
                 listbox.insert(tk.END, "No careers found matching your search")
 
         #trace constantly checks variables for changes and as soon as changes are detected list will be refreshed

@@ -424,6 +424,7 @@ class Career_Planner_App:
             for career in results:
                 listbox.insert(tk.END, f"{career.name}   |   {career.sector}   |   ${career.salary:,}/year")
 
+            #checks if users search doesn't match any careers
             if not results:
                 listbox.insert(tk.END, "No careers found matching your search")
 
@@ -433,6 +434,7 @@ class Career_Planner_App:
         sort_variable.trace_add("write", refresh_list)
         refresh_list()
 
+        #nested function to call when career is clicked
         def on_select(event):
             selection = listbox.curselection()
             if not selection:
@@ -441,15 +443,18 @@ class Career_Planner_App:
             if index < len(self.filtered_careers):
                 self.show_career_details(self.filtered_careers[index])
 
-        listbox.bind("<<ListboxSelect>>", on_select)
+        listbox.bind("<<ListboxSelect>>", on_select) #calls function when item in list box is selected
 
+        #creates button to return home
         button_frame = tk.Frame(self.root)
         button_frame.pack(pady = 10)
         tk.Button(button_frame, text = "Home", width = 15, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
+    #method to filter careers by sector
     def filter_by_sector(self, sector, sector_variable, search_variable, sort_variable, listbox):
         sector_variable.set(sector)
 
+    #method to display career information
     def show_career_details(self, career):
         self.clear_window()
         tk.Label(self.root, text = career.name, font = ("Arial", 22)).pack(pady = 20)
@@ -475,13 +480,15 @@ class Career_Planner_App:
         tk.Button(button_frame, text = "Back to Careers", width = 18, command = self.show_career_browser).pack(side = tk.LEFT, padx = 10)
         tk.Button(button_frame, text = "Home", width = 18, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
+    #method to start quiz
     def start_quiz(self):
         self.quiz = Quiz()
-        if not self.quiz.questions:
+        if not self.quiz.questions: #if quiz is empty
             messagebox.showerror("Error", "No quiz questions found.")
             return
-        self.show_quiz_questions()
+        self.show_quiz_questions() #calls function to display quiz
 
+    #method to display quiz questions 
     def show_quiz_questions(self):
         self.clear_window()
         if self.quiz is None:
@@ -509,6 +516,7 @@ class Career_Planner_App:
         for i, option in enumerate(question.options):
             tk.Radiobutton(self.root, text = option, variable = selected, value = i, font = ("Arial", 11)).pack(anchor = "w", padx = 80, pady = 4)
 
+        #nested function to submit answers for quiz
         def submit():
             if selected.get() == -1:
                 messagebox.showwarning("No answer", "Please select an answer before continuing.")
@@ -523,6 +531,7 @@ class Career_Planner_App:
         tk.Button(self.root, text = "Next", width = 20, command = submit).pack(pady = 20)
         tk.Button(self.root, text = "Cancel Quiz", width = 20, command = self.show_main_menu).pack()
 
+    #method to display results of quiz
     def show_quiz_results(self):
         self.clear_window()
         result = self.quiz.get_result()
@@ -542,6 +551,7 @@ class Career_Planner_App:
 
         tk.Button(self.root, text = "Home", width = 20, command = self.show_main_menu).pack(pady = 20)
 
+    #method to display user profile
     def show_profile(self):
         self.clear_window()
         tk.Label(self.root, text = "My Profile", font = ("Arial", 20)).pack(pady = 20)
@@ -570,6 +580,7 @@ class Career_Planner_App:
         tk.Button(button_frame, text = "Retake Quiz", width = 18, command = self.start_quiz).pack(side = tk.LEFT, padx = 10)
         tk.Button(button_frame, text = "Home", width = 18, command = self.show_main_menu).pack(side = tk.LEFT, padx = 10)
 
+    #method to display edit profile page
     def show_edit_profile(self):
         self.clear_window()
         tk.Label(self.root, text = "Edit Profile", font = ("Arial", 20)).pack(pady = 20)
@@ -584,10 +595,12 @@ class Career_Planner_App:
         education_entry.insert(0, self.current_user.education)
         education_entry.pack(pady = 5)
 
+        #nested function to save changes from user inputs
         def save_changes():
             new_username = username_entry.get().strip()
             new_education = education_entry.get().strip()
 
+            #validation for username and education level
             valid, message = validate_username(new_username)
             if not valid:
                 messagebox.showerror("Invalid Input", message)
@@ -601,18 +614,23 @@ class Career_Planner_App:
             else:
                 None
 
+            #updates current user status
             self.current_user.username = new_username
             self.current_user.education = new_education
 
+            #updates user dictionary and external file
             self.users_dict[self.current_user.username] = self.current_user.save_to_file()
             save_users(self.users_dict)
 
+            #displays message and new profile
             messagebox.showinfo("Success", "Profile updated successfully!")
             self.show_profile()
 
+        #creates buttons to save changes or cancel process
         tk.Button(self.root, text = "Save Changes", width = 20, command = save_changes).pack(pady = 15)
         tk.Button(self.root, text = "Cancel", width = 20, command = self.show_profile).pack()
 
+#starts the program
 root = tk.Tk()
 app = Career_Planner_App(root)
 root.mainloop()

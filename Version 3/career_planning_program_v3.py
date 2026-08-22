@@ -496,10 +496,10 @@ class Career_Planner_App:
         detail_frame.pack(padx = 40, pady = 10, anchor = "w")
 
         details = [
-            ("Name", self.curent_user.name),
+            ("Name", self.current_user.username),
             ("Email", self.current_user.email),
             ("Education", self.current_user.education),
-            ("Quiz results", self.current_user.quiz_reults 
+            ("Quiz results", self.current_user.quiz_results 
              if self.current_user.quiz_results
              else "Not yet taken")
         ]
